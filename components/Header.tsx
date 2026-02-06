@@ -31,7 +31,6 @@ export default function Header() {
         <div className="hidden md:flex items-center space-x-8">
           <a href="#home" className="text-gray-700 hover:text-blue-600 transition">Home</a>
           <a href="#services" className="text-gray-700 hover:text-blue-600 transition">Services</a>
-          <a href="#team" className="text-gray-700 hover:text-blue-600 transition">Team</a>
           <a href="#contact" className="text-gray-700 hover:text-blue-600 transition">Contact</a>
           <button className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition">
             Get Started
@@ -54,7 +53,6 @@ export default function Header() {
             <div className="px-2 pt-2 pb-3 space-y-1">
               <a href="#home" className="block px-3 py-2 rounded-md text-gray-700 hover:bg-gray-100">Home</a>
               <a href="#services" className="block px-3 py-2 rounded-md text-gray-700 hover:bg-gray-100">Services</a>
-              <a href="#team" className="block px-3 py-2 rounded-md text-gray-700 hover:bg-gray-100">Team</a>
               <a href="#contact" className="block px-3 py-2 rounded-md text-gray-700 hover:bg-gray-100">Contact</a>
               <button className="w-full mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
                 Get Started
