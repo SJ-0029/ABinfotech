@@ -32,3 +32,75 @@ jobs:
       - name: Create preview deployment
         if: github.event_name == 'pull_request'
         run: vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: Send Slack notification (Success)
+        if: success()
+        uses: slackapi/slack-github-action@v1.24.0
+        with:
+          webhook-url: ${{ secrets.SLACK_WEBHOOK }}
+          payload: |
+            {
+              "text": "✅ Deployment Successful",
+              "blocks": [
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "🚀 *Deployment Successful*\n*Project:* AB Infotech\n*Branch:* ${{ github.ref_name }}\n*Commit:* ${{ github.sha }}\n*Author:* ${{ github.actor }}"
+                  }
+                },
+                {
+                  "type": "actions",
+                  "elements": [
+                    {
+                      "type": "button",
+                      "text": {
+                        "type": "plain_text",
+                        "text": "View Deployment"
+                      },
+                      "url": "https://vercel.com/dashboard"
+                    },
+                    {
+                      "type": "button",
+                      "text": {
+                        "type": "plain_text",
+                        "text": "View Workflow"
+                      },
+                      "url": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+                    }
+                  ]
+                }
+              ]
+            }
+
+      - name: Send Slack notification (Failure)
+        if: failure()
+        uses: slackapi/slack-github-action@v1.24.0
+        with:
+          webhook-url: ${{ secrets.SLACK_WEBHOOK }}
+          payload: |
+            {
+              "text": "❌ Deployment Failed",
+              "blocks": [
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "🔴 *Deployment Failed*\n*Project:* AB Infotech\n*Branch:* ${{ github.ref_name }}\n*Commit:* ${{ github.sha }}\n*Author:* ${{ github.actor }}"
+                  }
+                },
+                {
+                  "type": "actions",
+                  "elements": [
+                    {
+                      "type": "button",
+                      "text": {
+                        "type": "plain_text",
+                        "text": "Check Logs"
+                      },
+                      "url": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+                    }
+                  ]
+                }
+              ]
+            }
