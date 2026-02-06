@@ -34,7 +34,7 @@ export default function Contact() {
             Get In Touch
           </h2>
           <p className="text-xl text-gray-600">
-            Let's discuss how we can help transform your business
+            Let&apos;s discuss how we can help transform your business
           </p>
         </div>
 

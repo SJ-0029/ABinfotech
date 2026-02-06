@@ -9,7 +9,7 @@ export default function Footer() {
           <div>
             <h3 className="text-white text-lg font-bold mb-4">AB INFOTECH SOLUTIONS Pvt Ltd</h3>
             <p className="text-sm">
-              India's leading IT services provider delivering innovative technology solutions.
+              India&apos;s leading IT services provider delivering innovative technology solutions.
             </p>
             <p className="text-xs text-gray-400 mt-2">ISO CERTIFIED 9001:2015</p>
             <p className="text-xs text-gray-400">REG NO : 230422082732QRA</p>
